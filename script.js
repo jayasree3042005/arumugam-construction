@@ -121,6 +121,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   function setModal(open){
     if(!modal) return;
     modal.setAttribute('aria-hidden', open ? 'false' : 'true');
+    modal.classList.toggle('visible', open);
   }
 
   if(openBtn) openBtn.addEventListener('click', ()=> setModal(true));

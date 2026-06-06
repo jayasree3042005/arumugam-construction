@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.getElementById('navLinks');
   if(navToggle){
     navToggle.addEventListener('click', ()=>{
-      navLinks.classList.toggle('open');
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
     });
   }
 
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
         // close mobile menu
         navLinks.classList.remove('open');
+        if(navToggle) navToggle.setAttribute('aria-expanded', 'false');
       }
     });
   });
